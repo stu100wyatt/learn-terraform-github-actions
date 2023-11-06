@@ -55,6 +55,9 @@ resource "aws_instance" "web" {
               echo "Hello World" > /var/www/html/index.html
               systemctl restart apache2
               EOF
+  tags = {
+    yor_trace = "2a5d421b-842e-4967-9d0d-2d02d1d4b47f"
+  }
 }
 
 resource "aws_security_group" "web-sg" {
@@ -71,6 +74,9 @@ resource "aws_security_group" "web-sg" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+  tags = {
+    yor_trace = "fe54bc8a-b8a5-42d3-ac81-5a34ab0da992"
   }
 }
 
